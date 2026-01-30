@@ -2,7 +2,7 @@
 /**
  * An enum for assignment of modes in a manner that is self-documenting
  */
-const Modes = {
+const MODES = {
   DYNAMIC_BACKGROUND: 0,
   ANIMATED_OBJECT: 1,
   MOUSE_INTERACT: 2,
@@ -17,7 +17,7 @@ let backgroundColor = [255, 255, 255];
 /**
  * The current mode for the program
  */
-let mode = Modes.DYNAMIC_BACKGROUND;
+let mode = MODES.DYNAMIC_BACKGROUND;
 
 /**
  * Creates the canvas for the program
@@ -33,7 +33,7 @@ function draw() {
   background(backgroundColor);
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
-  if (mode == Modes.DYNAMIC_BACKGROUND) {
+  if (mode == MODES.DYNAMIC_BACKGROUND) {
     printBackgroundColor();
   }
 
@@ -51,7 +51,7 @@ function windowResized() {
  * Handles any action that needs to result from a mouse movement
  */
 function mouseMoved() {
-  if (mode == Modes.DYNAMIC_BACKGROUND) {
+  if (mode == MODES.DYNAMIC_BACKGROUND) {
     dynamicBackground();
   }
 }
