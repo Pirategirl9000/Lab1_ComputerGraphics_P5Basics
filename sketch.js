@@ -33,6 +33,9 @@ function draw() {
   background(backgroundColor);
 }
 
+/**
+ * Triggers when the window is resized, resizes the canvas in accordance
+ */
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
