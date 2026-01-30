@@ -31,6 +31,15 @@ function setup() {
  */
 function draw() {
   background(backgroundColor);
+
+  // Render this in draw so it doesn't get wiped when they stop moving their mouse
+  if (mode == Modes.DYNAMIC_BACKGROUND) {
+    const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
+    fill(255)
+    text(textOut, 0, 10);
+  }
+
+
 }
 
 /**
@@ -56,7 +65,6 @@ function mouseMoved() {
  */
 function dynamicBackground() {
   // We'll use mouseX and mouseY for red and blue respectively
-  // We'll also use the windowHeight to give the user some control over the green value since there is no axis we can use for that
   // This gives the user full control over the color of the background
-  backgroundColor = [mouseX / windowWidth, 0, mouseY / windowHeight].map((pos) => (pos * 255) % 256);
+  backgroundColor = [mouseX / windowWidth, 0, mouseY / windowHeight].map((pos) => Math.round((pos * 256) % 256));
 }
