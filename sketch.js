@@ -34,9 +34,7 @@ function draw() {
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == Modes.DYNAMIC_BACKGROUND) {
-    const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
-    fill(255)
-    text(textOut, 0, 10);
+    printBackgroundColor();
   }
 
 
@@ -56,8 +54,6 @@ function mouseMoved() {
   if (mode == Modes.DYNAMIC_BACKGROUND) {
     dynamicBackground();
   }
-
-
 }
 
 /**
@@ -65,6 +61,14 @@ function mouseMoved() {
  */
 function dynamicBackground() {
   // We'll use mouseX and mouseY for red and blue respectively
-  // This gives the user full control over the color of the background
   backgroundColor = [mouseX / windowWidth, 0, mouseY / windowHeight].map((pos) => Math.round((pos * 256) % 256));
+}
+
+/**
+ * Prints the current background color to the canvas
+ */
+function printBackgroundColor() {
+    const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
+    fill(255)
+    text(textOut, 0, 10);
 }
