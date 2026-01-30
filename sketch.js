@@ -33,7 +33,7 @@ function draw() {
   background(backgroundColor);
 }
 
-function resizeWindow() {
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
@@ -55,6 +55,5 @@ function dynamicBackground() {
   // We'll use mouseX and mouseY for red and blue respectively
   // We'll also use the windowHeight to give the user some control over the green value since there is no axis we can use for that
   // This gives the user full control over the color of the background
-  backgroundColor = [windowWidth/mouseX, windowHeight, windowHeight/mouseY].map((pos) => pos % 256);
-  console.log("MouseX: " + mouseX + "windowWidth: " + windowWidth);
+  backgroundColor = [mouseX / windowWidth, 0, mouseY / windowHeight].map((pos) => (pos * 255) % 256);
 }
