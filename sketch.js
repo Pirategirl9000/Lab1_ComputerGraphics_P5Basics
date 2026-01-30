@@ -57,11 +57,18 @@ function mouseMoved() {
 }
 
 /**
- * Recalculates the new backgroundColor based on the mouse's position and windowHeight
+ * Recalculates the new backgroundColor based on the mouse's position and window dimensions
  */
 function dynamicBackground() {
+  // This will be used to map the mouse position to bounded RGB values
+  const bound = (pos) => Math.round((pos * 256) % 256);
+
   // We'll use mouseX and mouseY for red and blue respectively
-  backgroundColor = [mouseX / windowWidth, 0, mouseY / windowHeight].map((pos) => Math.round((pos * 256) % 256));
+  const relativeXPos = mouseX / windowWidth;
+  const relativeYPos = mouseY / windowHeight;
+
+  // Set the color of the background using the relative mouse positions and bound it to [0, 255]
+  backgroundColor = [relativeXPos, 0, relativeYPos].map(bound);
 }
 
 /**
