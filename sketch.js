@@ -58,5 +58,3 @@ function dynamicBackground() {
   backgroundColor = [windowWidth/mouseX, windowHeight, windowHeight/mouseY].map((pos) => pos % 256);
   console.log("MouseX: " + mouseX + "windowWidth: " + windowWidth);
 }
-
-//
