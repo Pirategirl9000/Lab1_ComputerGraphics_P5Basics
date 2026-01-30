@@ -3,10 +3,10 @@
  * An enum for assignment of modes in a manner that is self-documenting
  */
 const MODES = {
-  DYNAMIC_BACKGROUND: 0,
-  ANIMATED_OBJECT: 1,
-  MOUSE_INTERACT: 2,
-  PATTERN_GENERATION: 3
+  DYNAMIC_BACKGROUND: 1,
+  ANIMATED_OBJECT: 2,
+  MOUSE_INTERACT: 3,
+  PATTERN_GENERATION: 4
 };
 
 /**
@@ -31,14 +31,15 @@ function setup() {
  */
 function draw() {
   background(backgroundColor);
-  displayInstructions();
+
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == MODES.DYNAMIC_BACKGROUND) {
     printBackgroundColor();
   }
 
-
+  // Display instructions last so that nothing will draw over the instructions
+  displayInstructions();
 }
 
 /**
@@ -57,7 +58,31 @@ function mouseMoved() {
   }
 }
 
+/**
+ * Displays the instructions for changing modes
+ */
 function displayInstructions() {
+  // Check to see if the background is currently white and changes the text color to black if it is or white if it isn't
+  // Thanks to https://www.geeksforgeeks.org/javascript/how-to-compare-two-arrays-in-javascript/ for providing a quick way to compare arrays
+  if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
+    fill(0, 0, 0);
+  } else {
+    fill(255, 255, 255);
+  }
+
+  text("Press the number key of the mode you would like to select(default = 1)", 0, 20);
+  
+  // Iterate through every mode and print an instruction based on the MODES enum
+  for ([key, value] of Object.entries(MODES)) {
+    // Get the raw instruction and the value associated with it, this will also serve as the key to change to that mode
+    let instruction = `${key}: ${value}`;
+
+    // Reformat instruction to be properly capitilized and not all caps and replace underscores with spaces
+    instruction = instruction.charAt(0).toUpperCase() + instruction.substring(1, instruction.length).toLowerCase().replace("_", " ");
+
+    // Print out the instruction
+    text(instruction, (value-1)*250, 40);
+  }
   
 }
 
