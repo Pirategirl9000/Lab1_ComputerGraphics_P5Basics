@@ -10,6 +10,16 @@ const MODES = {
 };
 
 /**
+ * An enum for the different keys accepted by the program and their corresponding keycode
+ */
+const KEYS = {
+  ONE: 49,
+  TWO: 50,
+  THREE: 51,
+  FOUR: 52
+}
+
+/**
  * The background color for the canvas
  */
 let backgroundColor = [255, 255, 255];
@@ -31,6 +41,8 @@ function setup() {
  */
 function draw() {
   background(backgroundColor);
+
+  const keyPressed = getKeyPressed(); 
 
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
@@ -106,4 +118,17 @@ function printBackgroundColor() {
     const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
     fill(255)
     text(textOut, 0, windowHeight);
+}
+
+/**
+ * Gets all the keys currently pressed and returns an array containing all of the codes
+ * @returns ```number[]``` keycodes
+ */
+function getKeyPressed() {
+  const keysPressed = [];
+
+  // Check every KEY to see if it's being pressed and add it to the array if it is
+  Object.values(KEYS).forEach((code) => { if (keyIsDown(code)) keysPressed.push(code) });
+
+  return keysPressed;
 }
