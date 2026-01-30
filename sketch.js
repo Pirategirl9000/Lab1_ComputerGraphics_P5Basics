@@ -31,6 +31,7 @@ function setup() {
  */
 function draw() {
   background(backgroundColor);
+  displayInstructions();
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == MODES.DYNAMIC_BACKGROUND) {
@@ -56,6 +57,10 @@ function mouseMoved() {
   }
 }
 
+function displayInstructions() {
+  
+}
+
 /**
  * Recalculates the new backgroundColor based on the mouse's position and window dimensions
  */
@@ -77,5 +82,5 @@ function dynamicBackground() {
 function printBackgroundColor() {
     const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
     fill(255)
-    text(textOut, 0, 10);
+    text(textOut, 0, windowHeight);
 }
