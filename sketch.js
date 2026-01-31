@@ -274,6 +274,8 @@ function updateAnimatedCircle() {
 
 
   fill(Circle.color);
+  stroke(0, 0, 0);
+  strokeWeight(1);
   circle(Circle.x, Circle.y, Circle.diameter);
 }
 
