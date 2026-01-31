@@ -93,9 +93,6 @@ function draw() {
     // We don't repaint the background or instructions here since that causes some rendering issues
     drawMode();
   }
-
-  // Display instructions last so that nothing will draw over the instructions
-
 }
 
 /**
@@ -103,7 +100,7 @@ function draw() {
  */
 function windowResized() {
   // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
-  // We don't resize when in DRAW_MODE because this clears the canvas and thus all the instructions3
+  // We don't resize when in DRAW_MODE because this clears the canvas and all the instructions
   if (mode == MODES.ANIMATED_OBJECT || mode == MODES.DRAW_MODE) {return};
   resizeCanvas(windowWidth, windowHeight); 
 }
@@ -133,13 +130,11 @@ function displayInstructions() {
   
   // Iterate through every mode and print an instruction based on the MODES enum
   for ([key, value] of Object.entries(MODES)) {
-    // Get the raw instruction and the value associated with it, this will also serve as the key to change to that mode
     let instruction = `${key}: ${value}`;
 
     // Reformat instruction to be properly capitilized and not all caps and replace underscores with spaces
     instruction = instruction.charAt(0).toUpperCase() + instruction.substring(1, instruction.length).toLowerCase().replace("_", " ");
 
-    // Print out the instruction
     text(instruction, (value-1)*250, 40);
   }
   
@@ -149,7 +144,7 @@ function displayInstructions() {
  * Recalculates the new backgroundColor based on the mouse's position and window dimensions
  */
 function dynamicBackground() {
-  // Scales a value between [0, 1]  to a value between [0, 255]
+  // Scales a value between [0, 1] to a value between [0, 255]
   const scaleToColor = (pos) => Math.round(pos * 255);
 
   // We'll use mouseX and mouseY for red and blue respectively
@@ -206,7 +201,7 @@ function handleInputs() {
       case KEYS.THREE:
         mode = MODES.DRAW_MODE;
 
-        // we have to do the draw() logic here since we can't do it in draw() because we can't clear the canvas every frame in draw mode
+        // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in draw mode
         resizeCanvas(windowWidth, windowHeight);
         background(backgroundColor);
         displayInstructions();
@@ -262,6 +257,7 @@ function moveCircle() {
 function updateAnimatedCircle() {
   moveCircle();
 
+  // Check to see if it hits a wall and randomize the color if it did
   if (Circle.x >= width || Circle.x <= 0) {
     Circle.color = getRandomColor();
     Circle.xSpeed *= -1
@@ -272,7 +268,7 @@ function updateAnimatedCircle() {
     Circle.ySpeed *= -1;
   }
 
-
+  // Draw the circle
   fill(Circle.color);
   stroke(0, 0, 0);
   strokeWeight(1);
@@ -283,6 +279,7 @@ function updateAnimatedCircle() {
  * Handles single key presses, used for increasing and decreasing stroke size to allow for fine tuning the stroke size
  */
 function keyPressed() {
+  // We use seperate logic for increasing and decreasing stroke size than the rest of the inputs since it allows for fine tuning of your stroke size
   if (key === '+') {
     drawSize++;
   } else if (key === '-') {
@@ -297,6 +294,7 @@ function drawMode() {
   stroke(0, 0, 0);
   strokeWeight(0);
 
+  // Draw the shape for whatever draw mode we are in
   switch (currentDrawMode) {
     case DRAWMODES.SQUARE:
       fill(getRandomColor());
@@ -330,6 +328,7 @@ function printDrawModeInstructions() {
     fill(255, 255, 255);
   }
 
+  // Show the instructions for draw mode in the bottom left
   for ([key, value] of Object.entries(DRAWMODES)){
     let instruction = `${key}: ${value}`;
 
