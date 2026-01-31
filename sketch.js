@@ -1,3 +1,10 @@
+/**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-30-2026
+ * @summary This program contains several mini-programs written with the intention of learning the p5 library
+ */
+
 
 /**
  * An enum for assignment of the different program modes
