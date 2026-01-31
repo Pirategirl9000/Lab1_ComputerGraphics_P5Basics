@@ -5,7 +5,7 @@
 const MODES = {
   DYNAMIC_BACKGROUND: 1,
   ANIMATED_OBJECT: 2,
-  MOUSE_INTERACT: 3,
+  DRAW_MODE: 3,  // This is mouse-interact, I just thought draw mode was a better name for it
   PATTERN_GENERATION: 4
 };
 
@@ -55,7 +55,10 @@ let backgroundColor = [255, 255, 255];
  */
 let mode = MODES.DYNAMIC_BACKGROUND;
 
-let drawMode = 
+/**
+ * Current draw mode for the program, identifies what will be drawn on mouse down when in draw mode
+ */
+let currentDrawMode = DRAWMODES.SQUARE;
 
 /**
  * Creates the canvas for the program
@@ -69,14 +72,8 @@ function setup() {
  * Renders the current background and any objects that must be drawn to screen
  */
 function draw() {
-
-
   handleInputs();
 
-
-
-
-  // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == MODES.DYNAMIC_BACKGROUND) {
     background(backgroundColor);
     displayInstructions();
@@ -86,7 +83,8 @@ function draw() {
     displayInstructions();
     updateAnimatedCircle();
   } else if (mode == MODES.MOUSE_INTERACT) {
-
+    // We don't repaint the background or instructions here since that causes some rendering issues
+    drawMode();
   }
 
   // Display instructions last so that nothing will draw over the instructions
@@ -197,6 +195,25 @@ function handleInputs() {
         mode = MODES.PATTERN_GENERATION;
         break;
     }
+
+    // If they aren't in draw mode we don't need to do any further checks so we move onto the next key
+    if (mode != MODES.DRAW_MODE) {continue;}
+
+    // If they pressed a draw mode switching key we change their current draw mode
+    switch (key) {
+      case KEYS.Q:
+        currentDrawMode = DRAWMODES.SQUARE;
+        break;
+      case KEYS.W:
+        currentDrawMode = DRAWMODES.CIRCLE;
+        break;
+      case KEYS.E:
+        currentDrawMode = DRAWMODES.PENCIL;
+        break;
+      case KEYS.R:
+        currentDrawMode = DRAWMODES.ERASER;
+        break;
+    }
   }
 }
 
@@ -236,3 +253,7 @@ function updateAnimatedCircle() {
   circle(Circle.x, Circle.y, Circle.diameter);
 }
 
+
+function drawMode() {
+
+}
