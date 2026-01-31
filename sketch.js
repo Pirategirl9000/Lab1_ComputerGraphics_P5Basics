@@ -176,7 +176,7 @@ function getKeysPressed() {
 function handleInputs() {
   // Grab the current keys held
   const keysPressed = getKeysPressed();
-  const leftClickHeld = (mouseIsPressed) ? mouseButton == "left" : false;
+  const leftClickDown = (mouseIsPressed) ? mouseButton == "left" : false;
 
   // Iterate through the keys and perform their logic
   for (let i = 0; i < keysPressed.length; i++) {
@@ -216,6 +216,9 @@ function handleInputs() {
         break;
     }
   }
+
+  // Draws whatever it's supposed to
+  if (leftClickDown) {drawMode();}
 }
 
 /**
@@ -256,5 +259,26 @@ function updateAnimatedCircle() {
 
 
 function drawMode() {
+  stroke(0, 0, 0);
+  strokeWeight(1);
 
+  switch (currentDrawMode) {
+    case DRAWMODES.SQUARE:
+      fill(getRandomColor());
+      square(mouseX, mouseY, 10);
+      break;
+    case DRAWMODES.CIRCLE:
+      fill(getRandomColor());
+      circle(mouseX, mouseY, 10);
+      break;
+    case DRAWMODES.PENCIL:
+      fill(0, 0, 0);
+      square(mouseX, mouseY, 1);
+      break;
+    case DRAWMODES.ERASER:
+      strokeWeight(0);
+      fill(backgroundColor);
+      circle(mouseX, mouseY, 3);
+      break;
+  }
 }
