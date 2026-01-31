@@ -121,7 +121,7 @@ function mouseMoved() {
  * Displays the instructions for changing modes
  */
 function displayInstructions() {
-  // Check to see if the background is currently white and changes the text color to black if it is or white if it isn't
+  // Contrast the text against the background
   // Thanks to https://www.geeksforgeeks.org/javascript/how-to-compare-two-arrays-in-javascript/ for providing a quick way to compare arrays
   if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
     fill(0, 0, 0);
