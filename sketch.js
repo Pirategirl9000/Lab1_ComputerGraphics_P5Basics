@@ -20,6 +20,18 @@ const KEYS = {
 }
 
 /**
+ * Stores all the attributes related to the circle
+ */
+const Circle = {
+  x: 0,
+  y: 0,
+  diameter: 20,
+  xSpeed: 1,
+  ySpeed: 1,
+  color: [255, 255, 255]
+}
+
+/**
  * The background color for the canvas
  */
 let backgroundColor = [255, 255, 255];
@@ -34,6 +46,7 @@ let mode = MODES.DYNAMIC_BACKGROUND;
  */
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  Circle.color = getRandomColor();
 }
 
 /**
@@ -50,6 +63,8 @@ function draw() {
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == MODES.DYNAMIC_BACKGROUND) {
     printBackgroundColor();
+  } else if (mode == MODES.ANIMATED_OBJECT) {
+    updateAnimatedCircle();
   }
 
   // Display instructions last so that nothing will draw over the instructions
@@ -161,4 +176,40 @@ function handleInputs() {
         break;
     }
   }
+}
+
+/**
+ * Returns a random RGB color
+ * @returns ```number[]``` RGB color
+ */
+function getRandomColor() {return [random(255), random(255), random(255)];}
+
+/**
+ * Moves the circle based on its x and y speed
+ */
+function moveCircle() {
+  Circle.x += Circle.xSpeed;
+  Circle.y += Circle.ySpeed;
+}
+
+/**
+ * Updates the animated circle and redraws it
+ */
+function updateAnimatedCircle() {
+  moveCircle();
+
+  if (Circle.x >= windowWidth || Circle.x <= 0) {
+    console.log(getRandomColor());
+    Circle.color = getRandomColor();
+    Circle.xSpeed *= -1
+  }
+
+  if (Circle.y >= windowHeight || Circle.y <= 0) {
+    Circle.color = getRandomColor();
+    Circle.ySpeed *= -1;
+  }
+
+
+  fill(Circle.color);
+  circle(Circle.x, Circle.y, Circle.diameter);
 }
