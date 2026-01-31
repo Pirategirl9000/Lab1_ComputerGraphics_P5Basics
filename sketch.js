@@ -190,7 +190,7 @@ function handleInputs() {
         mode = MODES.ANIMATED_OBJECT;
         break;
       case KEYS.THREE:
-        mode = MODES.MOUSE_INTERACT;
+        mode = MODES.DRAW_MODE;
         break;
       case KEYS.FOUR:
         mode = MODES.PATTERN_GENERATION;
