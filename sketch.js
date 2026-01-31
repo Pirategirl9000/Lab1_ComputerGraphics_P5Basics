@@ -257,7 +257,6 @@ function updateAnimatedCircle() {
   moveCircle();
 
   if (Circle.x >= width || Circle.x <= 0) {
-    console.log(getRandomColor());
     Circle.color = getRandomColor();
     Circle.xSpeed *= -1
   }
