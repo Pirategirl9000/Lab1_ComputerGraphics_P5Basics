@@ -176,6 +176,7 @@ function getKeysPressed() {
 function handleInputs() {
   // Grab the current keys held
   const keysPressed = getKeysPressed();
+  const leftClickHeld = (mouseIsPressed) ? mouseButton == "left" : false;
 
   // Iterate through the keys and perform their logic
   for (let i = 0; i < keysPressed.length; i++) {
