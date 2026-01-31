@@ -331,7 +331,7 @@ function printDrawModeInstructions() {
     // Grab the capitilized first character, grab the other characters in lowercase, then grab the last character in its capital form
     instruction = instruction.charAt(0) + instruction.substring(1, instruction.length-1).toLowerCase() + instruction.charAt(instruction.length - 1);
 
-    text(instruction, position * 250, displayHeight);
+    text(instruction, position * 250, windowHeight);
     position++;
   }
 }
