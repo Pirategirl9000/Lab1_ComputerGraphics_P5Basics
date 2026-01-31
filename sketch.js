@@ -196,15 +196,19 @@ function handleInputs() {
     switch (key) {
       case KEYS.ONE:
         mode = MODES.DYNAMIC_BACKGROUND;
+        resizeCanvas(windowWidth, windowHeight);
         break;
       case KEYS.TWO:
         mode = MODES.ANIMATED_OBJECT;
+        resizeCanvas(windowWidth, windowHeight);
         break;
       case KEYS.THREE:
         mode = MODES.DRAW_MODE;
+        resizeCanvas(windowWidth, windowHeight);
         break;
       case KEYS.FOUR:
         mode = MODES.PATTERN_GENERATION;
+        resizeCanvas(windowWidth, windowHeight);
         break;
     }
 
