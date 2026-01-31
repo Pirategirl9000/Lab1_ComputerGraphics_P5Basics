@@ -73,15 +73,3 @@ function printDrawModeInstructions() {
   // Give an instruction outside the enum for how to clear the canvas
   text("Clear: 3", position * 75, windowHeight);
 }
-
-/**
- * Handles single key presses, used for increasing and decreasing stroke size to allow for fine tuning the stroke size
- */
-function keyPressed() {
-  // We use seperate logic for increasing and decreasing stroke size than the rest of the inputs since it allows for fine tuning of your stroke size
-  if (key === '+') {
-    drawSize++;
-  } else if (key === '-') {
-    drawSize = (drawSize - 1 <= 0) ? drawSize : drawSize - 1;
-  }
-}
