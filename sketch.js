@@ -69,7 +69,7 @@ function setup() {
  * Renders the current background and any objects that must be drawn to screen
  */
 function draw() {
-  background(backgroundColor);
+
 
   handleInputs();
 
@@ -78,13 +78,19 @@ function draw() {
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
   if (mode == MODES.DYNAMIC_BACKGROUND) {
+    background(backgroundColor);
+    displayInstructions();
     printBackgroundColor();
   } else if (mode == MODES.ANIMATED_OBJECT) {
+    background(backgroundColor);
+    displayInstructions();
     updateAnimatedCircle();
+  } else if (mode == MODES.MOUSE_INTERACT) {
+
   }
 
   // Display instructions last so that nothing will draw over the instructions
-  displayInstructions();
+
 }
 
 /**
@@ -229,3 +235,4 @@ function updateAnimatedCircle() {
   fill(Circle.color);
   circle(Circle.x, Circle.y, Circle.diameter);
 }
+
