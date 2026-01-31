@@ -42,7 +42,9 @@ function setup() {
 function draw() {
   background(backgroundColor);
 
-  const keyPressed = getKeysPressed(); 
+  handleInputs();
+
+
 
 
   // Render this in draw so it doesn't get wiped when they stop moving their mouse
@@ -131,4 +133,32 @@ function getKeysPressed() {
   Object.values(KEYS).forEach((code) => { if (keyIsDown(code)) keysPressed.push(code) });
 
   return keysPressed;
+}
+
+/**
+ * Grabs and handles the inputs
+ */
+function handleInputs() {
+  // Grab the current keys held
+  const keysPressed = getKeysPressed();
+
+  // Iterate through the keys and perform their logic
+  for (let i = 0; i < keysPressed.length; i++) {
+    const key = keysPressed[i];
+
+    switch (key) {
+      case KEYS.ONE:
+        mode = MODES.DYNAMIC_BACKGROUND;
+        break;
+      case KEYS.TWO:
+        mode = MODES.ANIMATED_OBJECT;
+        break;
+      case KEYS.THREE:
+        mode = MODES.MOUSE_INTERACT;
+        break;
+      case KEYS.FOUR:
+        mode = MODES.PATTERN_GENERATION;
+        break;
+    }
+  }
 }
