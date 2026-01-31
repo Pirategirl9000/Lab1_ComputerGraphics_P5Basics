@@ -315,6 +315,9 @@ function drawMode() {
   }
 }
 
+/**
+ * Displays instructions for draw mode
+ */
 function printDrawModeInstructions() {
   let position = 0;
 
