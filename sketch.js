@@ -26,7 +26,11 @@ const KEYS = {
   ONE: 49,
   TWO: 50,
   THREE: 51,
-  FOUR: 52
+  FOUR: 52,
+  Q: 81,
+  W: 87,
+  E: 69,
+  R: 82
 }
 
 /**
