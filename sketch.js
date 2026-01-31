@@ -252,13 +252,13 @@ function moveCircle() {
 function updateAnimatedCircle() {
   moveCircle();
 
-  if (Circle.x >= windowWidth || Circle.x <= 0) {
+  if (Circle.x >= width || Circle.x <= 0) {
     console.log(getRandomColor());
     Circle.color = getRandomColor();
     Circle.xSpeed *= -1
   }
 
-  if (Circle.y >= windowHeight || Circle.y <= 0) {
+  if (Circle.y >= height || Circle.y <= 0) {
     Circle.color = getRandomColor();
     Circle.ySpeed *= -1;
   }
