@@ -101,7 +101,11 @@ function draw() {
 /**
  * Triggers when the window is resized, resizes the canvas in accordance
  */
-function windowResized() { resizeCanvas(windowWidth, windowHeight); }
+function windowResized() {
+  // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
+  if (mode == MODES.ANIMATED_OBJECT) {return};
+  resizeCanvas(windowWidth, windowHeight); 
+}
 
 /**
  * Handles any action that needs to result from a mouse movement
