@@ -1,6 +1,6 @@
 
 /**
- * An enum for assignment of modes in a manner that is self-documenting
+ * An enum for assignment of the different program modes
  */
 const MODES = {
   DYNAMIC_BACKGROUND: 1,
@@ -8,6 +8,16 @@ const MODES = {
   MOUSE_INTERACT: 3,
   PATTERN_GENERATION: 4
 };
+
+/**
+ * An enum for assignment of drawing modes for MOUSE_INTERACT mode
+ */
+const DRAWMODES = {
+  SQUARE: 1,  // Draw squares where you click
+  CIRCLE: 2,  // Draw cricles where you click
+  PENCIL: 3,  // Draw tiny rectangles the size of a pixel where you click
+  ERASER: 4   // Draw small circles with color that matches the background where you click
+}
 
 /**
  * An enum for the different keys accepted by the program and their corresponding keycode
@@ -40,6 +50,8 @@ let backgroundColor = [255, 255, 255];
  * The current mode for the program
  */
 let mode = MODES.DYNAMIC_BACKGROUND;
+
+let drawMode = 
 
 /**
  * Creates the canvas for the program
