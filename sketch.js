@@ -13,10 +13,10 @@ const MODES = {
  * An enum for assignment of drawing modes for MOUSE_INTERACT mode
  */
 const DRAWMODES = {
-  SQUARE: 1,  // Draw squares where you click
-  CIRCLE: 2,  // Draw cricles where you click
-  PENCIL: 3,  // Draw tiny rectangles the size of a pixel where you click
-  ERASER: 4   // Draw small circles with color that matches the background where you click
+  SQUARE: "Q",  // Draw squares where you click
+  CIRCLE: "W",  // Draw cricles where you click
+  PENCIL: "E",  // Draw tiny rectangles the size of a pixel where you click
+  ERASER: "R"   // Draw small circles with color that matches the background where you click
 }
 
 /**
@@ -103,7 +103,8 @@ function draw() {
  */
 function windowResized() {
   // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
-  if (mode == MODES.ANIMATED_OBJECT) {return};
+  // We don't resize when in DRAW_MODE because this clears the canvas and thus all the instructions3
+  if (mode == MODES.ANIMATED_OBJECT || mode == MODES.DRAW_MODE) {return};
   resizeCanvas(windowWidth, windowHeight); 
 }
 
@@ -204,7 +205,12 @@ function handleInputs() {
         break;
       case KEYS.THREE:
         mode = MODES.DRAW_MODE;
+
+        // we have to do the draw() logic here since we can't do it in draw() because we can't clear the canvas every frame in draw mode
         resizeCanvas(windowWidth, windowHeight);
+        background(backgroundColor);
+        displayInstructions();
+        printDrawModeInstructions();
         break;
       case KEYS.FOUR:
         mode = MODES.PATTERN_GENERATION;
@@ -306,5 +312,26 @@ function drawMode() {
       fill(backgroundColor);
       circle(mouseX, mouseY, drawSize);
       break;
+  }
+}
+
+function printDrawModeInstructions() {
+  let position = 0;
+
+  // Make the text contrast the background
+  if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
+    fill(0, 0, 0);
+  } else {
+    fill(255, 255, 255);
+  }
+
+  for ([key, value] of Object.entries(DRAWMODES)){
+    let instruction = `${key}: ${value}`;
+
+    // Grab the capitilized first character, grab the other characters in lowercase, then grab the last character in its capital form
+    instruction = instruction.charAt(0) + instruction.substring(1, instruction.length-1).toLowerCase() + instruction.charAt(instruction.length - 1);
+
+    text(instruction, position * 250, displayHeight);
+    position++;
   }
 }
