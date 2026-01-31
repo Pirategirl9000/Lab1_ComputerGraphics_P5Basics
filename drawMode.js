@@ -1,4 +1,11 @@
 /**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-30-2026
+ * @summary Contains relevant variables and functions for the drawMode(mouse interaction) of the application
+ */
+
+/**
  * An enum for assignment of drawing modes for MOUSE_INTERACT mode
  */
 const DRAWMODES = {

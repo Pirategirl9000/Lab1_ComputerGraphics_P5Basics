@@ -1,3 +1,9 @@
+/**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-30-2026
+ * @summary Contains the different p5 event handling functions for the program
+ */
 
 /**
  * Triggers when the window is resized, resizes the canvas in accordance

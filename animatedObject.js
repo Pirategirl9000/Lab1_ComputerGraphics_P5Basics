@@ -1,4 +1,11 @@
 /**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-30-2026
+ * @summary Contains the functions and objects necessary for the animated object mode of the program
+ */
+
+/**
  * Stores all the attributes related to the circle
  */
 const Circle = {

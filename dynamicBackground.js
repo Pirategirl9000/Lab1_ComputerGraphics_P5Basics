@@ -1,4 +1,11 @@
 /**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-30-2026
+ * @summary Contains functions used for the dynamicBackground mode of the program
+ */
+
+/**
  * Recalculates the new backgroundColor based on the mouse's position and window dimensions
  */
 function dynamicBackground() {
