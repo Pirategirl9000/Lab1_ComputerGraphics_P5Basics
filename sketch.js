@@ -17,16 +17,6 @@ const MODES = {
 };
 
 /**
- * An enum for assignment of drawing modes for MOUSE_INTERACT mode
- */
-const DRAWMODES = {
-  SQUARE: "Q",  // Draw squares where you click
-  CIRCLE: "W",  // Draw cricles where you click
-  PENCIL: "E",  // Draw tiny rectangles the size of a pixel where you click
-  ERASER: "R"   // Draw small circles with color that matches the background where you click
-}
-
-/**
  * An enum for the different keys accepted by the program and their corresponding keycode
  */
 const KEYS = {
@@ -51,16 +41,6 @@ let backgroundColor = [255, 255, 255];
  * The current mode for the program
  */
 let mode = MODES.DYNAMIC_BACKGROUND;
-
-/**
- * Current draw mode for the program, identifies what will be drawn on mouse down when in draw mode
- */
-let currentDrawMode = DRAWMODES.SQUARE;
-
-/**
- * The current drawSize for all drawings, affects shape size and stroke size (pencil & eraser)
- */
-let drawSize = 20;
 
 /**
  * Creates the canvas for the program
@@ -133,15 +113,6 @@ function displayInstructions() {
     text(instruction, (value-1)*250, 40);
   }
   
-}
-
-/**
- * Prints the current background color to the canvas
- */
-function printBackgroundColor() {
-    const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
-    fill(255)
-    text(textOut, 0, windowHeight);
 }
 
 /**
@@ -233,60 +204,4 @@ function keyPressed() {
   } else if (key === '-') {
     drawSize = (drawSize - 1 <= 0) ? drawSize : drawSize - 1;
   }
-}
-
-/**
- * Draws whatever object the mode is currently set to draw
- */
-function drawMode() {
-  stroke(0, 0, 0);
-  strokeWeight(0);
-
-  // Draw the shape for whatever draw mode we are in
-  switch (currentDrawMode) {
-    case DRAWMODES.SQUARE:
-      fill(getRandomColor());
-      square(mouseX, mouseY, drawSize);
-      break;
-    case DRAWMODES.CIRCLE:
-      fill(getRandomColor());
-      circle(mouseX, mouseY, drawSize);
-      break;
-    case DRAWMODES.PENCIL:
-      fill(0, 0, 0);
-      square(mouseX, mouseY, drawSize);
-      break;
-    case DRAWMODES.ERASER:
-      fill(backgroundColor);
-      circle(mouseX, mouseY, drawSize);
-      break;
-  }
-}
-
-/**
- * Displays instructions for draw mode
- */
-function printDrawModeInstructions() {
-  let position = 0;
-
-  // Make the text contrast the background
-  if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
-    fill(0, 0, 0);
-  } else {
-    fill(255, 255, 255);
-  }
-
-  // Show the instructions for draw mode in the bottom left
-  for ([key, value] of Object.entries(DRAWMODES)){
-    let instruction = `${key}: ${value}`;
-
-    // Grab the capitilized first character, grab the other characters in lowercase, then grab the last character in its capital form
-    instruction = instruction.charAt(0) + instruction.substring(1, instruction.length-1).toLowerCase() + instruction.charAt(instruction.length - 1);
-
-    text(instruction, position * 75, windowHeight);
-    position++;
-  }
-
-  // Give an instruction outside the enum for how to clear the canvas
-  text("Clear: 3", position * 75, windowHeight);
 }
