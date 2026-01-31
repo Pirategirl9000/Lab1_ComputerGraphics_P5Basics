@@ -12,3 +12,12 @@ function dynamicBackground() {
   // Set the color of the background using the relative mouse positions and scale it to [0, 255]
   backgroundColor = [relativeXPos, 0, relativeYPos].map(scaleToColor);
 }
+
+/**
+ * Prints the current background color to the canvas
+ */
+function printBackgroundColor() {
+    const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
+    fill(255)
+    text(textOut, 0, windowHeight);
+}
