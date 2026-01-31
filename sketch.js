@@ -30,7 +30,9 @@ const KEYS = {
   Q: 81,
   W: 87,
   E: 69,
-  R: 82
+  R: 82,
+  PLUS: 187,
+  MINUS: 189
 }
 
 /**
@@ -59,6 +61,11 @@ let mode = MODES.DYNAMIC_BACKGROUND;
  * Current draw mode for the program, identifies what will be drawn on mouse down when in draw mode
  */
 let currentDrawMode = DRAWMODES.SQUARE;
+
+/**
+ * The current drawSize for all drawings, affects shape size and stroke size (pencil & eraser)
+ */
+let drawSize = 20;
 
 /**
  * Creates the canvas for the program
@@ -257,28 +264,40 @@ function updateAnimatedCircle() {
   circle(Circle.x, Circle.y, Circle.diameter);
 }
 
+/**
+ * Handles single key presses, used for increasing and decreasing stroke size to allow for fine tuning the stroke size
+ */
+function keyPressed() {
+  if (key === '+') {
+    drawSize++;
+  } else if (key === '-') {
+    drawSize = (drawSize - 1 <= 0) ? drawSize : drawSize - 1;
+  }
+}
 
+/**
+ * Draws whatever object the mode is currently set to draw
+ */
 function drawMode() {
   stroke(0, 0, 0);
-  strokeWeight(1);
+  strokeWeight(0);
 
   switch (currentDrawMode) {
     case DRAWMODES.SQUARE:
       fill(getRandomColor());
-      square(mouseX, mouseY, 10);
+      square(mouseX, mouseY, drawSize);
       break;
     case DRAWMODES.CIRCLE:
       fill(getRandomColor());
-      circle(mouseX, mouseY, 10);
+      circle(mouseX, mouseY, drawSize);
       break;
     case DRAWMODES.PENCIL:
       fill(0, 0, 0);
-      square(mouseX, mouseY, 1);
+      square(mouseX, mouseY, drawSize);
       break;
     case DRAWMODES.ERASER:
-      strokeWeight(0);
       fill(backgroundColor);
-      circle(mouseX, mouseY, 3);
+      circle(mouseX, mouseY, drawSize);
       break;
   }
 }
