@@ -50,7 +50,7 @@ For more information on each mode see the [script breakdown](#script-breakdown)
         * ###### ```displayInstructions```
             * Displays the instructions for changing modes
         * ###### ```getRandomColor```
-            * Returns a random color
+            * Returns a random RGB color
 * #### eventHandlers.js
 
 * #### dynamicBackground.js
