@@ -64,10 +64,7 @@ function draw() {
     background(backgroundColor);
     displayInstructions();
     updateAnimatedCircle();
-  } else if (mode == MODES.DRAW_MODE) {
-    // We don't repaint the background or instructions here since that causes some rendering issues
-    drawMode();
-  }  // We don't do pattern mode here since we have no need to redraw it every frame
+  }
 }
 
 /**
