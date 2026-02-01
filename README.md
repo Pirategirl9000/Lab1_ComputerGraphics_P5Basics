@@ -20,6 +20,8 @@ This program is to learn the p5 library by creating several mini programs inside
 
 For more information on each mode see the [script breakdown](#script-breakdown)
 
+[view the output](#output)
+
 ---
 
 ### Script Breakdown
@@ -174,3 +176,16 @@ For more information on each mode see the [script breakdown](#script-breakdown)
         * Colors are randomly determined when called
     * ###### ```printPatternModeInstructions```
         * Prints the instructions for interacting with pattern mode
+
+---
+### Output
+##### Dynamic Background
+![Dynamic Background](assets/dynamicBackgroundOut.png)
+##### Animated Object
+![Animated Object](assets/animatedObjectOut.png)
+##### Draw Mode
+![Draw Mode](assets/drawModeOut.png)
+##### Pattern Generation
+![Horizontal Squares](assets/horizontalSquareOut.png)
+![Vertical Squares](assets/verticalSquareOut.png)
+![Circle Pattern](assets/circleOut.png)
