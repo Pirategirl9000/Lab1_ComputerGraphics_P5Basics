@@ -1,5 +1,5 @@
-# P5 Basics
-##### Author: Violet French
+# [P5 Basics](https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics)
+##### Author: [Violet French](https://github.com/Pirategirl9000)
 
 ---
 
