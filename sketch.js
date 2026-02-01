@@ -58,13 +58,17 @@ function draw() {
 
   if (mode == MODES.DYNAMIC_BACKGROUND) {
     background(backgroundColor);
-    displayInstructions();
     printBackgroundColor();
   } else if (mode == MODES.ANIMATED_OBJECT) {
     background(backgroundColor);
-    displayInstructions();
     updateAnimatedCircle();
+  } else if (mode == MODES.DRAW_MODE) {
+    printDrawModeInstructions();
+  } else if (mode == MODES.PATTERN_GENERATION) {
+    printPatternModeInstructions();
   }
+
+  displayInstructions();
 }
 
 /**
@@ -131,8 +135,6 @@ function handleInputs() {
         // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in draw mode
         resizeCanvas(windowWidth, windowHeight);
         background(backgroundColor);
-        displayInstructions();
-        printDrawModeInstructions();
         break;
       case KEYS.FOUR:
         mode = MODES.PATTERN_GENERATION;
@@ -141,8 +143,6 @@ function handleInputs() {
         resizeCanvas(windowWidth, windowHeight);
         background(backgroundColor);
         patternMode();  // Draw the pattern
-        displayInstructions();
-        printPatternModeInstructions();
 
         break;
     }
