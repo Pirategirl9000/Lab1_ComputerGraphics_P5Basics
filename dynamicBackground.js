@@ -28,9 +28,7 @@ function printBackgroundColor() {
     fill(0, 0, 0);
     rect(0, windowHeight-20, width, 20);
 
-    fill(255, 255, 255);
-
     const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
-    fill(255)
+    fill(255, 255, 255)
     text(textOut, 0, windowHeight);
 }
