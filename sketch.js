@@ -17,22 +17,6 @@ const MODES = {
 };
 
 /**
- * An enum for the different keys accepted by the program and their corresponding keycode
- */
-const KEYS = {
-  ONE: 49,
-  TWO: 50,
-  THREE: 51,
-  FOUR: 52,
-  Q: 81,
-  W: 87,
-  E: 69,
-  R: 82,
-  PLUS: 187,
-  MINUS: 189
-}
-
-/**
  * The background color for the canvas
  */
 let backgroundColor = [255, 255, 255];
@@ -96,104 +80,13 @@ function displayInstructions() {
 }
 
 /**
- * Gets all the keys currently pressed and returns an array containing all of the codes
- * @returns ```number[]``` keycodes
- */
-function getKeysPressed() {
-  const keysPressed = [];
-
-  // Check every KEY to see if it's being pressed and add it to the array if it is
-  Object.values(KEYS).forEach((code) => { if (keyIsDown(code)) keysPressed.push(code) });
-
-  return keysPressed;
-}
-
-/**
  * Grabs and handles the inputs
  */
 function handleInputs() {
-  // Grab the current keys held
-  const keysPressed = getKeysPressed();
   const leftClickDown = (mouseIsPressed) ? mouseButton == "left" : false;
 
-  // Iterate through the keys and perform their logic
-  for (let i = 0; i < keysPressed.length; i++) {
-    const key = keysPressed[i];
-
-    switch (key) {
-      case KEYS.ONE:
-        mode = MODES.DYNAMIC_BACKGROUND;
-        resizeCanvas(windowWidth, windowHeight);
-        break;
-      case KEYS.TWO:
-        mode = MODES.ANIMATED_OBJECT;
-        resizeCanvas(windowWidth, windowHeight);
-        break;
-      case KEYS.THREE:
-        mode = MODES.DRAW_MODE;
-
-        // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in draw mode
-        resizeCanvas(windowWidth, windowHeight);
-        background(backgroundColor);
-        break;
-      case KEYS.FOUR:
-        mode = MODES.PATTERN_GENERATION;
-
-        // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in pattern mode
-        resizeCanvas(windowWidth, windowHeight);
-        background(backgroundColor);
-        patternMode();  // Draw the pattern
-
-        break;
-    }
-
-    if (mode == MODES.DRAW_MODE) {
-
-      // If they pressed a draw mode switching key we change their current draw mode
-      switch (key) {
-        case KEYS.Q:
-          currentDrawMode = DRAWMODES.SQUARE;
-          break;
-        case KEYS.W:
-          currentDrawMode = DRAWMODES.CIRCLE;
-          break;
-        case KEYS.E:
-          currentDrawMode = DRAWMODES.PENCIL;
-          break;
-        case KEYS.R:
-          currentDrawMode = DRAWMODES.ERASER;
-          break;
-      }
-
-    } else if (mode == MODES.PATTERN_GENERATION) {
-
-      // If they pressed a pattern mode switching key we change their current pattern mode and draw the pattern
-      switch (key) {
-        case KEYS.Q:
-          currentPatternMode = PATTERNMODES.HORSQUARES;
-          break;
-        case KEYS.W:
-          currentPatternMode = PATTERNMODES.VERTSQUARES;
-          break;
-        case KEYS.E:
-          currentPatternMode = PATTERNMODES.CIRCLES;
-          break;
-      }
-
-      
-      // Clear the canvas
-      background(backgroundColor);
-
-      // Draw the pattern
-      patternMode();  
-
-      displayInstructions();
-      printPatternModeInstructions();
-    }
-  }
-
-      // Draws whatever it's supposed to
-    if (leftClickDown && mode == MODES.DRAW_MODE) {drawMode();}
+  // Draws whatever it's supposed to
+  if (leftClickDown && mode == MODES.DRAW_MODE) {drawMode();}
 }
 
 /**
