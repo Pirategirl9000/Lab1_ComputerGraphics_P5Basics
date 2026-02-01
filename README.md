@@ -51,7 +51,31 @@ For more information on each mode see the [script breakdown](#script-breakdown)
             * Displays the instructions for changing modes
         * ###### ```getRandomColor```
             * Returns a random RGB color
+
 * #### eventHandlers.js
+    * Purpose
+        * Handles p5 events like key presses, mouse movement, and window resizing
+        * Also stores all the different [keys](#keys) used for input
+    * Variables & Objects
+        * ###### ```KEYS```
+            * An enum storing all the different input types and their associated keys
+            * Provides an easy way to change keybinds without massive refactoring
+    * Functions
+        * ###### ```windowResized```
+            * p5 function that triggers when the window is resized
+            * Resizes the canvas if in dynamic background mode
+                * Only does it in this mode since it causes problems if done in other modes
+                * Canvas is resized to match window dimensions
+        * ###### ```mouseMoved```
+            * p5 function that triggers when the mouse is moved
+            * Used in [dynamic background mode](#dynamicbackgroundjs) to adjust the color according to the mouse position
+        * ###### ```keyPressed```
+            * p5 function that triggers when a key is pressed and released
+            * Used for handling all keyboard events
+            * Used for changing [```mode```](#mode), [```currentDrawMode```](#currentdrawmode), and [```currentPatternMode```](#currentpatternmode)
+                * Also used for adjusting [```drawSize```](#drawsize) in draw mode
+
+    
 
 * #### dynamicBackground.js
 
