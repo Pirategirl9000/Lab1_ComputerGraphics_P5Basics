@@ -4,7 +4,7 @@
 ---
 
 ### Purpose
-This program is to learn the p5 module by creating several mini programs inside of one large program.
+This program is to learn the p5 library by creating several mini programs inside of one large program.
 
 ---
 
