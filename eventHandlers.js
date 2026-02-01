@@ -11,7 +11,7 @@
 function windowResized() {
   // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
   // We don't resize when in DRAW_MODE because this clears the canvas and all the instructions
-  if (mode == MODES.ANIMATED_OBJECT || mode == MODES.DRAW_MODE) {return};
+  if (mode == MODES.ANIMATED_OBJECT || mode == MODES.DRAW_MODE || mode == MODES.PATTERN_GENERATION) {return};
   resizeCanvas(windowWidth, windowHeight); 
 }
 
