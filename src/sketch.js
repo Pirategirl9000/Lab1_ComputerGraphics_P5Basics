@@ -43,7 +43,7 @@ function draw() {
     printBackgroundColor();
   } else if (mode == MODES.ANIMATED_OBJECT) {
     background(backgroundColor);
-    updateAnimatedCircle();
+    updateAnimatedObject();
   } else if (mode == MODES.DRAW_MODE) {
     printDrawModeInstructions();
     drawMode();

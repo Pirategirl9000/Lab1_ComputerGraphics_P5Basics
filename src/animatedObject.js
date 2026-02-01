@@ -28,7 +28,7 @@ function moveCircle() {
 /**
  * Updates the animated circle and redraws it
  */
-function updateAnimatedCircle() {
+function updateAnimatedObject() {
   moveCircle();
 
   // Check to see if it hits a wall and randomize the color if it did
