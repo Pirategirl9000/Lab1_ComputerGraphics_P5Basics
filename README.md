@@ -113,9 +113,34 @@ For more information on each mode see the [script breakdown](#script-breakdown)
         * Moves the circle according to it's ```xSpeed``` and ```ySpeed```
         * is called once every frame by ```updateAnimatedObject```
     * ###### ```updateAnimatedObject```
-        * Moves the circle forward a frame, reverses it's direction and randomizes its color if it hits a wall, and redraws the circle to the canvas
+        * Moves the circle forward a frame, reverses it's direction & randomizing its color if it hits a wall, then redraws the circle to the canvas
         * Called once every frame by the [draw function](#sketchjs)
 
 #### drawMode.js
+* Purpose
+    * This mode provides the user with tools allowing them to draw to the canvas
+    * The different tools available are defined by the ```DRAWMODES```
+* Variables & Objects
+    * ###### ```DRAWMODES```
+        * An enum containing the different draw modes for draw mode
+        * Contains
+            * ```SQUARE``` - draws randomly colored squares
+            * ```CIRCLE``` - draws randomly colored circles
+            * ```PENCIL``` - draws black circles
+            * ```ERASER``` - draws circles that match the background color
+            * ```SIZEUP``` - increases ```drawSize```
+            * ```SIZEDOWN``` - decreases ```drawSize```
+    * ###### ```currentDrawMode```
+        * Stores the current draw mode which decides what to draw on LMB
+    * ###### ```drawSize```
+        * The size all shapes will be drawn
+            * length for squares
+            * diameter for circles
+* Functions
+    * ###### ```drawMode```
+        * draws shapes based on the ```currentDrawMode``` if the left mouse button is currently held down
+    * ###### ```printDrawModeInstructions```
+        * Writes the instructions for draw mode in the bottom right corner
+            * Prints out the keys for changing tools and the ```drawSize``` (called stroke size)
 
 #### patternGenerations.js
