@@ -57,3 +57,21 @@ function drawCirclePattern() {
         }
     }
 }
+
+function printPatternModeInstructions() {
+    let position = 0;
+
+    // Show the instructions for draw mode in the bottom left
+    for ([key, value] of Object.entries(PATTERNMODES)){
+        let instruction = `${key}: ${value}`;
+
+        // Grab the capitilized first character, grab the other characters in lowercase, then grab the last character in its capital form
+        instruction = instruction.charAt(0) + instruction.substring(1, instruction.length-1).toLowerCase() + instruction.charAt(instruction.length - 1);
+
+        text(instruction, position * 75, windowHeight);
+        position++;
+    }
+
+    // Give an instruction outside the enum for how to clear the canvas
+    text("New Pattern: 4", position * 75, windowHeight);
+}
