@@ -9,22 +9,48 @@ This program is to learn the p5 module by creating several mini programs inside 
 ---
 
 #### Included
-* Dynamic Background Mode
+* [Dynamic Background Mode](#dynamicbackgroundjs)
     * The background dynamically changes as you move your mouse across the screen
-* Object Animation Mode
+* [Object Animation Mode](#animatedobjectjs)
     * A circle bounces across the screen changing colors as it hits the walls
-* Draw Mode
+* [Draw Mode](#drawmodejs)
     * A mode which the user can draw in allowing for mouse interactivity
-* Pattern Mode
+* [Pattern Mode](#patterngenerationsjs)
     * Draws patterns to the screen with alternating colors
 
-For more information on each mode see the script breakdown
+For more information on each mode see the [script breakdown](#script-breakdown)
 
 ---
 
 ### Script Breakdown
-* #### sketch.js
-
+* #### sketchjs
+    * Purpose
+        * Serves as the main function for the program
+        * Handles most of the top level logic and declares variables and functions used by other scripts
+    * Variables & Objects
+        * ```MODES```
+            * An enum for all the different program modes
+            * Contains: ```DYNAMIC_BACKGROUND```, ```ANIMATED_OBJECT```, ```DRAW_MODE```, and ```PATTERN_MODE```
+        * ```backgroundColor```
+            * Stores the current background color
+        * ```mode```
+            * The current mode of the program
+    * Functions
+        * ```setup```
+            * p5 function that is called at beginning of program
+            * Sets ```Circle.color``` to a random color
+            * Creates the canvas
+        * ```draw```
+            * p5 function that is called once every frame
+            * Handles any logic that needs to happen every frame
+                * Redraws backgrounds
+                * Reprints instructions
+                * Updates the circle's position
+                * Checks for mouse inputs in draw mode
+        * ```displayInstructions```
+            * Displays the instructions for changing modes
+        * ```getRandomColor```
+            * Returns a random color
 * #### eventHandlers.js
 
 * #### dynamicBackground.js
