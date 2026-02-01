@@ -46,7 +46,7 @@ function drawMode() {
       break;
     case DRAWMODES.PENCIL:
       fill(0, 0, 0);
-      square(mouseX, mouseY, drawSize);
+      circle(mouseX, mouseY, drawSize);
       break;
     case DRAWMODES.ERASER:
       fill(backgroundColor);
