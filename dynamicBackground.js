@@ -24,6 +24,12 @@ function dynamicBackground() {
  * Prints the current background color to the canvas
  */
 function printBackgroundColor() {
+    // Draw a black box so we can see the instructions no matter what random colors are picked
+    fill(0, 0, 0);
+    rect(0, windowHeight-20, width, 20);
+
+    fill(255, 255, 255);
+
     const textOut =`RGB(${backgroundColor[0]}, ${backgroundColor[1]}, ${backgroundColor[2]})`;
     fill(255)
     text(textOut, 0, windowHeight);

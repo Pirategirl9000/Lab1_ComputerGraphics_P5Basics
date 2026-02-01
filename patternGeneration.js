@@ -61,6 +61,12 @@ function drawCirclePattern() {
 function printPatternModeInstructions() {
     let position = 0;
 
+    // Draw a black box so we can see the instructions no matter what random colors are picked
+    fill(0, 0, 0);
+    rect(0, windowHeight-20, width, 20);
+
+    fill(255, 255, 255);
+    
     // Show the instructions for draw mode in the bottom left
     for ([key, value] of Object.entries(PATTERNMODES)){
         let instruction = `${key}: ${value}`;

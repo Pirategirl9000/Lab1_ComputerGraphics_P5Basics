@@ -71,13 +71,11 @@ function draw() {
  * Displays the instructions for changing modes
  */
 function displayInstructions() {
-  // Contrast the text against the background
-  // Thanks to https://www.geeksforgeeks.org/javascript/how-to-compare-two-arrays-in-javascript/ for providing a quick way to compare arrays
-  if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
+      // Draw a black box so we can see the instructions no matter what random colors are picked
     fill(0, 0, 0);
-  } else {
+    rect(0,0, width, 50);
+
     fill(255, 255, 255);
-  }
 
   text("Press the number key of the mode you would like to select(default = 1)", 0, 20);
   

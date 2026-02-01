@@ -59,12 +59,11 @@ function drawMode() {
 function printDrawModeInstructions() {
   let position = 0;
 
-  // Make the text contrast the background
-  if (JSON.stringify(backgroundColor) == JSON.stringify([255,255,255])) {
-    fill(0, 0, 0);
-  } else {
-    fill(255, 255, 255);
-  }
+  // Draw a black box so we can see the instructions no matter what background is used
+  fill(0, 0, 0);
+  rect(0, windowHeight-20, width, 20);
+
+  fill(255, 255, 255);
 
   // Show the instructions for draw mode in the bottom left
   for ([key, value] of Object.entries(DRAWMODES)){
