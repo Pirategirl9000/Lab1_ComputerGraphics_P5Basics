@@ -80,4 +80,7 @@ function printDrawModeInstructions() {
 
   // Give an instruction outside the enum for how to clear the canvas
   text("Clear: 3", position * 75, windowHeight);
+  
+
+  text("Stroke Size: " + drawSize, windowWidth-100, windowHeight);
 }
