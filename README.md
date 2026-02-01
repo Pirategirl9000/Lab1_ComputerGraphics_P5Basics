@@ -28,28 +28,28 @@ For more information on each mode see the [script breakdown](#script-breakdown)
         * Serves as the main function for the program
         * Handles most of the top level logic and declares variables and functions used by other scripts
     * Variables & Objects
-        * ```MODES```
+        * ###### ```MODES```
             * An enum for all the different program modes
             * Contains: ```DYNAMIC_BACKGROUND```, ```ANIMATED_OBJECT```, ```DRAW_MODE```, and ```PATTERN_MODE```
-        * ```backgroundColor```
+        * ###### ```backgroundColor```
             * Stores the current background color
-        * ```mode```
+        * ###### ```mode```
             * The current mode of the program
     * Functions
-        * ```setup```
+        * ###### ```setup```
             * p5 function that is called at beginning of program
-            * Sets ```Circle.color``` to a random color
+            * Sets ```Circle.color``` to a [random color](#getrandomcolor)
             * Creates the canvas
-        * ```draw```
+        * ###### ```draw```
             * p5 function that is called once every frame
             * Handles any logic that needs to happen every frame
                 * Redraws backgrounds
                 * Reprints instructions
                 * Updates the circle's position
                 * Checks for mouse inputs in draw mode
-        * ```displayInstructions```
+        * ###### ```displayInstructions```
             * Displays the instructions for changing modes
-        * ```getRandomColor```
+        * ###### ```getRandomColor```
             * Returns a random color
 * #### eventHandlers.js
 
