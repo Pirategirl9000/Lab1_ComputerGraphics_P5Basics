@@ -84,6 +84,7 @@ For more information on each mode see the [script breakdown](#script-breakdown)
                 * green remains constant at 0
                 * the value for the new color is calculated using
                     * $red \approx mouseX / windowWidth * 255 $
+                    * $green = 0$
                     * $blue \approx mouseY / windowHeight * 255$
                     * Value is rounded to next whole integer
     * Variables & Objects
