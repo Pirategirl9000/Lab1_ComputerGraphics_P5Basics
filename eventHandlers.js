@@ -25,7 +25,7 @@ const KEYS = {
 }
 
 /**
- * Triggers when the window is resized, resizes the canvas in accordance
+ * Triggers when the window is resized, resizes the canvas in accordance if in certain modes
  */
 function windowResized() {
   // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
