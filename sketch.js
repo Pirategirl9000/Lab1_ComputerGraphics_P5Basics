@@ -67,7 +67,7 @@ function draw() {
   } else if (mode == MODES.MOUSE_INTERACT) {
     // We don't repaint the background or instructions here since that causes some rendering issues
     drawMode();
-  }
+  }  // We don't do pattern mode here since we have no need to redraw it every frame
 }
 
 /**
@@ -145,6 +145,7 @@ function handleInputs() {
         // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in pattern mode
         resizeCanvas(windowWidth, windowHeight);
         background(backgroundColor);
+        patternMode();  // Draw the pattern
         displayInstructions();
         break;
     }
@@ -152,20 +153,38 @@ function handleInputs() {
     // If they aren't in draw mode we don't need to do any further checks so we move onto the next key
     if (mode != MODES.DRAW_MODE) {continue;}
 
-    // If they pressed a draw mode switching key we change their current draw mode
-    switch (key) {
-      case KEYS.Q:
-        currentDrawMode = DRAWMODES.SQUARE;
-        break;
-      case KEYS.W:
-        currentDrawMode = DRAWMODES.CIRCLE;
-        break;
-      case KEYS.E:
-        currentDrawMode = DRAWMODES.PENCIL;
-        break;
-      case KEYS.R:
-        currentDrawMode = DRAWMODES.ERASER;
-        break;
+
+    if (mode == MODES.DRAW_MODE) {
+
+      // If they pressed a draw mode switching key we change their current draw mode
+      switch (key) {
+        case KEYS.Q:
+          currentDrawMode = DRAWMODES.SQUARE;
+          break;
+        case KEYS.W:
+          currentDrawMode = DRAWMODES.CIRCLE;
+          break;
+        case KEYS.E:
+          currentDrawMode = DRAWMODES.PENCIL;
+          break;
+        case KEYS.R:
+          currentDrawMode = DRAWMODES.ERASER;
+          break;
+      }
+
+    } else if (mode == MODES.PATTERN_GENERATION) {
+
+      // If they pressed a pattern mode switching key we change their current pattern mode and draw the pattern
+      switch (key) {
+        case KEYS.Q:
+          currentPatternMode = PATTERNMODES.SQUARES;
+          patternMode();  // draw the pattern
+          break;
+        case KEYS.W:
+          currentPatternMode = PATTERNMODES.CIRCLES;
+          patternMode(); // draw the pattern
+          break;
+      }
     }
   }
 
