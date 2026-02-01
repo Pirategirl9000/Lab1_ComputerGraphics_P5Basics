@@ -25,7 +25,7 @@ For more information on each mode see the [script breakdown](#script-breakdown)
 ### Script Breakdown
 #### sketch.js
 * Purpose
-    * Serves as the main function for the program
+    * Serves as the main script for the program
     * Handles most of the top level logic and declares variables and functions used by other scripts
 * Variables & Objects
     * ###### ```MODES```
