@@ -87,8 +87,13 @@ For more information on each mode see the [script breakdown](#script-breakdown)
                     * $green = 0$
                     * $blue \approx mouseY / windowHeight * 255$
                     * Value is rounded to next whole integer
-    * Variables & Objects
+        * The background color persists when you change between the modes
     * Functions
+        * ###### ```dynamicBackground```
+            * Calculates the new background color based on the mouse's position relative to the window's dimensions
+            * See the purpose section above for how it is calculated
+        * ###### ```printBackgroundColor```
+            * Prints the current background color in the bottom right corner
 
 * #### animatedObject.js
 
