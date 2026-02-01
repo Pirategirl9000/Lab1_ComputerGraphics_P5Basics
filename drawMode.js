@@ -33,7 +33,6 @@ let drawSize = 20;
 function drawMode() {
   if (!(mouseIsPressed && mouseButton == "left")) return;
 
-  stroke(0, 0, 0);
   strokeWeight(0);
 
   // Draw the shape for whatever draw mode we are in
