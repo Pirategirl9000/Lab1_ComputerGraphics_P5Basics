@@ -71,11 +71,11 @@ function draw() {
  * Displays the instructions for changing modes
  */
 function displayInstructions() {
-      // Draw a black box so we can see the instructions no matter what random colors are picked
-    fill(0, 0, 0);
-    rect(0,0, width, 50);
+  // Draw a black box so we can see the instructions no matter what random colors are picked
+  fill(0, 0, 0);
+  rect(0,0, width, 50);
 
-    fill(255, 255, 255);
+  fill(255, 255, 255);
 
   text("Press the number key of the mode you would like to select(default = 1)", 0, 20);
   
