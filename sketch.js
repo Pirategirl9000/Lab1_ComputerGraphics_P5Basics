@@ -147,10 +147,6 @@ function handleInputs() {
         break;
     }
 
-    // If they aren't in draw mode we don't need to do any further checks so we move onto the next key
-    if (mode != MODES.DRAW_MODE) {continue;}
-
-
     if (mode == MODES.DRAW_MODE) {
 
       // If they pressed a draw mode switching key we change their current draw mode
@@ -198,8 +194,8 @@ function handleInputs() {
     }
   }
 
-  // Draws whatever it's supposed to
-  if (leftClickDown) {drawMode();}
+      // Draws whatever it's supposed to
+    if (leftClickDown && mode == MODES.DRAW_MODE) {drawMode();}
 }
 
 /**
