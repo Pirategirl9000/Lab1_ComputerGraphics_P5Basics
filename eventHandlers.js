@@ -27,7 +27,8 @@ const KEYS = {
 function windowResized() {
   // We don't resize when in ANIMATED_OBJECT because then the ball gets stuck off screen
   // We don't resize when in DRAW_MODE because this clears the canvas and all the instructions
-  if (mode == MODES.ANIMATED_OBJECT || mode == MODES.DRAW_MODE || mode == MODES.PATTERN_GENERATION) {return};
+  // We don't resize when in PATTERN_GENERATION because this skews the appearence of the pattern with whitespace.
+  if (mode != MODES.DYNAMIC_BACKGROUND) {return};
   resizeCanvas(windowWidth, windowHeight); 
 }
 
