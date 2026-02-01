@@ -23,3 +23,14 @@ For more information on each mode see the script breakdown
 ---
 
 ### Script Breakdown
+* #### sketch.js
+
+* #### eventHandlers.js
+
+* #### dynamicBackground.js
+
+* #### animatedObject.js
+
+* #### drawMode.js
+
+* #### patternGenerations.js
