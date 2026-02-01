@@ -12,7 +12,9 @@ const DRAWMODES = {
   SQUARE: "Q",  // Draw squares where you click
   CIRCLE: "W",  // Draw cricles where you click
   PENCIL: "E",  // Draw tiny rectangles the size of a pixel where you click
-  ERASER: "R"   // Draw small circles with color that matches the background where you click
+  ERASER: "R",  // Draw small circles with color that matches the background where you click
+  SIZEUP: "+",  // Increase stroke size
+  SIZEDOWN: "-" // Decrease stroke size
 }
 
 /**
