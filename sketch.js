@@ -38,8 +38,6 @@ function setup() {
  * Renders the current background and any objects that must be drawn to screen
  */
 function draw() {
-  handleInputs();
-
   if (mode == MODES.DYNAMIC_BACKGROUND) {
     background(backgroundColor);
     printBackgroundColor();
@@ -48,6 +46,7 @@ function draw() {
     updateAnimatedCircle();
   } else if (mode == MODES.DRAW_MODE) {
     printDrawModeInstructions();
+    drawMode();
   } else if (mode == MODES.PATTERN_GENERATION) {
     printPatternModeInstructions();
   }
@@ -77,16 +76,6 @@ function displayInstructions() {
     text(instruction, (value-1)*250, 40);
   }
   
-}
-
-/**
- * Grabs and handles the inputs
- */
-function handleInputs() {
-  const leftClickDown = (mouseIsPressed) ? mouseButton == "left" : false;
-
-  // Draws whatever it's supposed to
-  if (leftClickDown && mode == MODES.DRAW_MODE) {drawMode();}
 }
 
 /**

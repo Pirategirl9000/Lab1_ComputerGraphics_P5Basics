@@ -31,6 +31,8 @@ let drawSize = 20;
  * Draws whatever object the mode is currently set to draw
  */
 function drawMode() {
+  if (!(mouseIsPressed && mouseButton == "left")) return;
+
   stroke(0, 0, 0);
   strokeWeight(0);
 
