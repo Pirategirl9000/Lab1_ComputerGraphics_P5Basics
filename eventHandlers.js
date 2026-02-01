@@ -5,6 +5,9 @@
  * @summary Contains the different p5 event handling functions for the program
  */
 
+/**
+ * The different inputs for the program and their corresponding key
+ */
 const KEYS = {
   DYNAMIC_BACKGROUND: "1",
   ANIMATED_OBJECT: "2",
@@ -42,7 +45,7 @@ function mouseMoved() {
 }
 
 /**
- * Handles single key presses, used for increasing and decreasing stroke size to allow for fine tuning the stroke size
+ * Handles single key presses, used for all keyboard input in the program
  */
 function keyPressed() {
 
