@@ -144,3 +144,33 @@ For more information on each mode see the [script breakdown](#script-breakdown)
             * Prints out the keys for changing tools and the ```drawSize``` (called stroke size)
 
 #### patternGenerations.js
+* Purpose
+    * This mode displays different patterns which use alternating colors that are randomized when generating the pattern
+* Variables & Objects
+    * ###### ```PATTERNMODES```
+        * An enum that stores the different patterns and their associated key value
+        * Contains
+            * ```HORSQUARES``` - Squares with a horizontal color pattern
+            * ```VERTSQUARES``` - Squares with a vertical color pattern
+            * ```CIRCLES``` - Circles with a vertical color pattern
+    * ###### ```currentPatternMode```
+        * Stores the current pattern mode
+    * ###### ```shapeSize```
+        * Stores the size each shape should be
+            * length for squares
+            * diameter for circles
+* Functions
+    * ###### ```patternMode```
+        * Calls the function associated with whatever the ```currentPatternMode``` is
+        * Called when ```currentPatternMode``` [changes](#eventhandlersjs) or when [switching](#eventhandlersjs) to pattern mode
+    * ###### ```drawVertSquarePattern```
+        * Draws a pattern of alternating color squares whose colors align vertically
+        * Colors are randomly determined when called
+    * ###### ```drawHorSquarePattern```
+        * Draws a pattern of alternating color squares whose colors align horizontally
+        * Colors are randomly determined when called
+    * ###### ```drawCirclePattern```
+        * Draws a pattern of alternating color circles whose colors align vertically
+        * Colors are randomly determined when called
+    * ###### ```printPatternModeInstructions```
+        * Prints the instructions for interacting with pattern mode
