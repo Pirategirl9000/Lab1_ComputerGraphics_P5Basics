@@ -181,7 +181,6 @@ function handleInputs() {
           break;
         case KEYS.W:
           currentPatternMode = PATTERNMODES.CIRCLES;
-          patternMode(); 
 
           // Clear the canvas
           background(backgroundColor);
