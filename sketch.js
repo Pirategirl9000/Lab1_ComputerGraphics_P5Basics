@@ -141,7 +141,11 @@ function handleInputs() {
         break;
       case KEYS.FOUR:
         mode = MODES.PATTERN_GENERATION;
+
+        // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in pattern mode
         resizeCanvas(windowWidth, windowHeight);
+        background(backgroundColor);
+        displayInstructions();
         break;
     }
 
