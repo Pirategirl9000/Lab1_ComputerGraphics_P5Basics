@@ -96,6 +96,25 @@ For more information on each mode see the [script breakdown](#script-breakdown)
         * Prints the current background color in the bottom right corner
 
 #### animatedObject.js
+* Purpose
+    * This mode renders a ball that bounces off the walls of the canvas changing colors each bounce
+* Variables & Objects
+    * ###### ```Circle```
+        * An object containing all the information pertaining to the bouncing ball
+        * Attributes
+            * ```x``` - The current x position of the circle
+            * ```y``` - The current y position of the circle
+            * ```diameter``` - The diameter of the circle
+            * ```xSpeed``` - The current xSpeed of the circle
+            * ```ySpeed``` - The current ySpeed of the circle
+            * ```color``` - The current color of the circle
+* Functions
+    * ###### ```moveCircle```
+        * Moves the circle according to it's ```xSpeed``` and ```ySpeed```
+        * is called once every frame by ```updateAnimatedObject```
+    * ###### ```updateAnimatedObject```
+        * Moves the circle forward a frame, reverses it's direction and randomizes its color if it hits a wall, and redraws the circle to the canvas
+        * Called once every frame by the [draw function](#sketchjs)
 
 #### drawMode.js
 
