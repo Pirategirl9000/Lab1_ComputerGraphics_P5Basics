@@ -19,7 +19,7 @@ const MODES = {
 /**
  * The background color for the canvas
  */
-const backgroundColor = [255, 255, 255];
+let backgroundColor = [255, 255, 255];
 
 /**
  * The current mode for the program
