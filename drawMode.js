@@ -6,7 +6,7 @@
  */
 
 /**
- * An enum for assignment of drawing modes for MOUSE_INTERACT mode
+ * An enum for assignment of drawing modes for DRAW_MODE
  */
 const DRAWMODES = {
   SQUARE: "Q",  // Draw squares where you click
