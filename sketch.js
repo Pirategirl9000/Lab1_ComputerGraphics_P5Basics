@@ -170,30 +170,25 @@ function handleInputs() {
       // If they pressed a pattern mode switching key we change their current pattern mode and draw the pattern
       switch (key) {
         case KEYS.Q:
-          currentPatternMode = PATTERNMODES.SQUARES;
-
-          // Clear the canvas
-          background(backgroundColor);
-
-          // Draw the pattern
-          patternMode();  
-
-          displayInstructions();
-          printPatternModeInstructions();
+          currentPatternMode = PATTERNMODES.HORSQUARES;
           break;
         case KEYS.W:
+          currentPatternMode = PATTERNMODES.VERTSQUARES;
+          break;
+        case KEYS.E:
           currentPatternMode = PATTERNMODES.CIRCLES;
-
-          // Clear the canvas
-          background(backgroundColor);
-
-          // Draw the pattern
-          patternMode();  
-
-          displayInstructions();
-          printPatternModeInstructions();
           break;
       }
+
+      
+      // Clear the canvas
+      background(backgroundColor);
+
+      // Draw the pattern
+      patternMode();  
+
+      displayInstructions();
+      printPatternModeInstructions();
     }
   }
 
