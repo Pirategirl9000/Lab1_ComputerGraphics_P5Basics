@@ -1,6 +1,6 @@
 const PATTERNMODES = {
-    HORSQUARES: "Q",
-    VERTSQUARES: "W",
+    VERTSQUARES: "Q",
+    HORSQUARES: "W",
     CIRCLES: "E"
 }
 
@@ -11,10 +11,10 @@ let currentPatternMode = PATTERNMODES.HORSQUARES;
 function patternMode() {
     switch(currentPatternMode) {
         case PATTERNMODES.HORSQUARES:
-            drawHorizontalSquarePattern();
+            drawVertSquarePattern();
             break;
         case PATTERNMODES.VERTSQUARES:
-            drawVerticalSquarePattern();
+            drawHorSquarePattern();
             break;
         case PATTERNMODES.CIRCLES:
             drawCirclePattern();
@@ -22,7 +22,7 @@ function patternMode() {
     }
 }
 
-function drawHorizontalSquarePattern() {
+function drawVertSquarePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
 
@@ -43,7 +43,7 @@ function drawHorizontalSquarePattern() {
 }
 
 
-function drawVerticalSquarePattern() {
+function drawHorSquarePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
 
