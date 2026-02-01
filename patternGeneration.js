@@ -1,16 +1,20 @@
 const PATTERNMODES = {
-    SQUARES: "Q",
-    CIRCLES: "W",
+    HORSQUARES: "Q",
+    VERTSQUARES: "W",
+    CIRCLES: "E"
 }
 
 const shapeSize = 20;
 
-let currentPatternMode = PATTERNMODES.SQUARES;
+let currentPatternMode = PATTERNMODES.HORSQUARES;
 
 function patternMode() {
     switch(currentPatternMode) {
-        case PATTERNMODES.SQUARES:
-            drawSquarePattern();
+        case PATTERNMODES.HORSQUARES:
+            drawHorizontalSquarePattern();
+            break;
+        case PATTERNMODES.VERTSQUARES:
+            drawVerticalSquarePattern();
             break;
         case PATTERNMODES.CIRCLES:
             drawCirclePattern();
@@ -18,7 +22,7 @@ function patternMode() {
     }
 }
 
-function drawSquarePattern() {
+function drawHorizontalSquarePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
 
@@ -34,6 +38,27 @@ function drawSquarePattern() {
             j += shapeSize;
             fill(colorTwo);
             square(j, i, shapeSize);
+        }
+    }
+}
+
+
+function drawVerticalSquarePattern() {
+    stroke(0, 0, 0);
+    strokeWeight(1);
+
+    // Each time you switch to this mode we give it a new pattern
+    const colorOne = getRandomColor();
+    const colorTwo = getRandomColor();
+
+    // Draw left to right
+    for (let i = 0; i < width; i += shapeSize) {
+        for (let j = 0; j < height; j += shapeSize) {
+            fill(colorOne);
+            square(i, j, shapeSize);
+            j += shapeSize;
+            fill(colorTwo);
+            square(i, j, shapeSize);
         }
     }
 }
@@ -66,7 +91,7 @@ function printPatternModeInstructions() {
     rect(0, windowHeight-20, width, 20);
 
     fill(255, 255, 255);
-    
+
     // Show the instructions for draw mode in the bottom left
     for ([key, value] of Object.entries(PATTERNMODES)){
         let instruction = `${key}: ${value}`;
@@ -74,10 +99,10 @@ function printPatternModeInstructions() {
         // Grab the capitilized first character, grab the other characters in lowercase, then grab the last character in its capital form
         instruction = instruction.charAt(0) + instruction.substring(1, instruction.length-1).toLowerCase() + instruction.charAt(instruction.length - 1);
 
-        text(instruction, position * 75, windowHeight);
+        text(instruction, position * 95, windowHeight);
         position++;
     }
 
     // Give an instruction outside the enum for how to clear the canvas
-    text("New Pattern: 4", position * 75, windowHeight);
+    text("New Pattern: 4", position * 95, windowHeight);
 }
