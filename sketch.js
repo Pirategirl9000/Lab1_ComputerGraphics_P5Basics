@@ -142,8 +142,8 @@ function handleInputs() {
         // we have to do the draw() logic here instead of in draw() because we can't clear the canvas every frame in pattern mode
         resizeCanvas(windowWidth, windowHeight);
         background(backgroundColor);
-        displayInstructions();
         patternMode();  // Draw the pattern
+        displayInstructions();
         break;
     }
 
@@ -174,20 +174,22 @@ function handleInputs() {
 
           // Clear the canvas
           background(backgroundColor);
-          displayInstructions();
 
           // Draw the pattern
           patternMode();  
+
+          displayInstructions();
           break;
         case KEYS.W:
           currentPatternMode = PATTERNMODES.CIRCLES;
 
           // Clear the canvas
           background(backgroundColor);
-          displayInstructions();
 
           // Draw the pattern
           patternMode();  
+
+          displayInstructions();
           break;
       }
     }
