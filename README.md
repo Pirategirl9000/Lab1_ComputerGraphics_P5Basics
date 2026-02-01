@@ -38,7 +38,7 @@ For more information on each mode see the [script breakdown](#script-breakdown)
 * Functions
     * ###### ```setup```
         * p5 function that is called at beginning of program
-        * Sets ```Circle.color``` to a [random color](#getrandomcolor)
+        * Sets ```Circle.color``` to a random color
         * Creates the canvas
     * ###### ```draw```
         * p5 function that is called once every frame
@@ -55,7 +55,7 @@ For more information on each mode see the [script breakdown](#script-breakdown)
 #### eventHandlers.js
 * Purpose
     * Handles p5 events like key presses, mouse movement, and window resizing
-    * Also stores all the different [keys](#keys) used for input
+    * Also stores all the different keys used for input
 * Variables & Objects
     * ###### ```KEYS```
         * An enum storing all the different input types and their associated keys
@@ -72,8 +72,8 @@ For more information on each mode see the [script breakdown](#script-breakdown)
     * ###### ```keyPressed```
         * p5 function that triggers when a key is pressed and released
         * Used for handling all keyboard events
-        * Used for changing [```mode```](#mode), [```currentDrawMode```](#currentdrawmode), and [```currentPatternMode```](#currentpatternmode)
-            * Also used for adjusting [```drawSize```](#drawsize) in draw mode
+        * Used for changing ```mode```, ```currentDrawMode```, and ```currentPatternMode```
+            * Also used for adjusting ```drawSize``` in draw mode
 
     
 #### dynamicBackground.js
