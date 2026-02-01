@@ -1,13 +1,32 @@
+/**
+ * @author Violet French
+ * @see https://github.com/Pirategirl9000/Lab1_ComputerGraphics_P5Basics
+ * @date 1-31-2026
+ * @summary Handles all variables and functions related to patternGeneration mode
+ */
+
+/**
+ * The different types of patterns in pattern mode
+ */
 const PATTERNMODES = {
     VERTSQUARES: "Q",
     HORSQUARES: "W",
     CIRCLES: "E"
 }
 
+/**
+ * The size of each shape in the pattern
+ */
 const shapeSize = 20;
 
+/**
+ * The current pattern to draw
+ */
 let currentPatternMode = PATTERNMODES.HORSQUARES;
 
+/**
+ * Delegates work to the pattern drawing function associated with the ```currentPatternMode```
+ */
 function patternMode() {
     switch(currentPatternMode) {
         case PATTERNMODES.HORSQUARES:
@@ -22,6 +41,9 @@ function patternMode() {
     }
 }
 
+/**
+ * Draws a pattern of squares with alternating colors whose colors align vertically
+ */
 function drawVertSquarePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
@@ -42,7 +64,9 @@ function drawVertSquarePattern() {
     }
 }
 
-
+/**
+ * Draws a pattern of squares with alternating colors whose colors align horizontally
+ */
 function drawHorSquarePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
@@ -51,7 +75,7 @@ function drawHorSquarePattern() {
     const colorOne = getRandomColor();
     const colorTwo = getRandomColor();
 
-    // Draw left to right
+    // Draw up to down
     for (let i = 0; i < width; i += shapeSize) {
         for (let j = 0; j < height; j += shapeSize) {
             fill(colorOne);
@@ -63,6 +87,9 @@ function drawHorSquarePattern() {
     }
 }
 
+/**
+ * Draws a pattern of circles with alternating colors whose colors align vertically
+ */
 function drawCirclePattern() {
     stroke(0, 0, 0);
     strokeWeight(1);
@@ -83,6 +110,9 @@ function drawCirclePattern() {
     }
 }
 
+/**
+ * Prints the instructions for pattern mode in the bottom left
+ */
 function printPatternModeInstructions() {
     let position = 0;
 
