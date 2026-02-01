@@ -144,6 +144,8 @@ function handleInputs() {
         background(backgroundColor);
         patternMode();  // Draw the pattern
         displayInstructions();
+        printPatternModeInstructions();
+
         break;
     }
 
@@ -179,6 +181,7 @@ function handleInputs() {
           patternMode();  
 
           displayInstructions();
+          printPatternModeInstructions();
           break;
         case KEYS.W:
           currentPatternMode = PATTERNMODES.CIRCLES;
@@ -190,6 +193,7 @@ function handleInputs() {
           patternMode();  
 
           displayInstructions();
+          printPatternModeInstructions();
           break;
       }
     }
