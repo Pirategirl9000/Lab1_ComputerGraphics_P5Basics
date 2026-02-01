@@ -76,8 +76,18 @@ For more information on each mode see the [script breakdown](#script-breakdown)
                 * Also used for adjusting [```drawSize```](#drawsize) in draw mode
 
     
-
 * #### dynamicBackground.js
+    * Purpose
+        * Handles all the logic pertaining to the dynamic background mode
+            * Dynamic background changes the color of the background based on your mouse position
+            * The x position changes the red value and the y value changes the blue value
+                * green remains constant at 0
+                * the value for the new color is calculated using
+                    * $red \approx mouseX / windowWidth * 255 $
+                    * $blue \approx mouseY / windowHeight * 255$
+                    * Value is rounded to next whole integer
+    * Variables & Objects
+    * Functions
 
 * #### animatedObject.js
 
